@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fitness Tracker</string>
+    <string name="action_signOut">Sign out</string>
+    <string name="button_stats">Stats</string>
+    <string name="button_addexcercise">Add excercise</string>
+    <string name="button_trackExcercise">Start tracking</string>
+    <string name="button_viewExcercises">View excercises</string>
+</resources>
