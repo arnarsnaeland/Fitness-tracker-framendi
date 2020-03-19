@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UserFetchr {
 
-    private static final String TAG = "UserFetchr";
+    private static final String TAG = "user";
 
     public byte[] getUrlBytes(String urlSpec) throws IOException {
         URL url = new URL(urlSpec);
