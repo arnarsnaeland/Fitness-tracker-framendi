@@ -1,4 +1,4 @@
-package is.hi.fitnesstracker;
+package is.hi.hbv601.fitnesstracker;
 
 import android.net.Uri;
 import android.util.Log;
