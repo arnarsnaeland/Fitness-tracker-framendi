@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery;
+package is.hi.fitnesstracker;
 
 import android.net.Uri;
 import android.util.Log;
