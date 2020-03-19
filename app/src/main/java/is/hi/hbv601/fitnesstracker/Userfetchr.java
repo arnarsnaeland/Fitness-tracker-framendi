@@ -15,11 +15,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlickrFetchr {
+public class UserFetchr {
 
-    private static final String TAG = "FlickrFetchr";
-
-    private static final String API_KEY = "REPLACE_ME_WITH_A_REAL_KEY";
+    private static final String TAG = "UserFetchr";
 
     public byte[] getUrlBytes(String urlSpec) throws IOException {
         URL url = new URL(urlSpec);
@@ -47,7 +45,10 @@ public class FlickrFetchr {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public List<Exercise> fetchItems() {
+    public List<Exercise> fetchItems(String userName; String password) {
+        
+        JSONObject postparams = new JSONObject();
+        postparams.put(userName, password);
 
         List<Exercise> items = new ArrayList<>();
 
@@ -90,5 +91,4 @@ public class FlickrFetchr {
             items.add(item);
         }
     }
-
 }
