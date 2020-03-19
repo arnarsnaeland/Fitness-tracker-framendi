@@ -12,7 +12,3 @@
 /captures
 .externalNativeBuild
 .cxx
-# vscode
-/.idea
-.project
-

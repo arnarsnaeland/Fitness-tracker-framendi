@@ -1,4 +1,4 @@
-package is.hi.hbv601.fitnesstracker;
+package com.fitnesstracker;
 
 import android.content.Intent;
 import android.os.Bundle;
