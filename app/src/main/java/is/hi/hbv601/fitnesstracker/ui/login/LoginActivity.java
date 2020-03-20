@@ -1,4 +1,4 @@
-package com.fitnesstracker.ui.login;
+package is.hi.hbv601.fitnesstracker.ui.login;
 
 import android.app.Activity;
 
@@ -23,10 +23,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fitnesstracker.MainActivity;
-import com.fitnesstracker.R;
-import com.fitnesstracker.ui.login.LoginViewModel;
-import com.fitnesstracker.ui.login.LoginViewModelFactory;
+import is.hi.hbv601.fitnesstracker.MainActivity;
+import is.hi.hbv601.fitnesstracker.R;
+//import is.hi.hbv601.fitnesstracker.ui.login.LoginViewModel;
+import is.hi.hbv601.fitnesstracker.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 

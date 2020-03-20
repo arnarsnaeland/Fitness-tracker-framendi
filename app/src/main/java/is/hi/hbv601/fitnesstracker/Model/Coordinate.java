@@ -1,8 +1,5 @@
 package is.hi.hbv601.fitnesstracker.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.persistence.*;
 
 public class Coordinate {
     private long id;

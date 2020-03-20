@@ -1,4 +1,4 @@
-package com.fitnesstracker.ui.login;
+package is.hi.hbv601.fitnesstracker.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.

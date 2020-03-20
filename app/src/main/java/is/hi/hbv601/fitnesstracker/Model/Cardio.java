@@ -1,10 +1,6 @@
 package is.hi.hbv601.fitnesstracker.Model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
-
-import javax.persistence.Entity;
 
 public class Cardio extends Exercise {
 

@@ -1,11 +1,13 @@
-package com.fitnesstracker.ui.login;
+package is.hi.hbv601.fitnesstracker.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.fitnesstracker.data.LoginDataSource;
-import com.fitnesstracker.data.LoginRepository;
+import is.hi.hbv601.fitnesstracker.data.LoginDataSource;
+import is.hi.hbv601.fitnesstracker.data.LoginRepository;
+
+import is.hi.hbv601.fitnesstracker.ui.login.LoginViewModel;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

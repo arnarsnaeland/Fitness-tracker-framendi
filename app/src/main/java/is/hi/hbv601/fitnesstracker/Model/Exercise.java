@@ -1,10 +1,5 @@
 package is.hi.hbv601.fitnesstracker.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class Exercise {

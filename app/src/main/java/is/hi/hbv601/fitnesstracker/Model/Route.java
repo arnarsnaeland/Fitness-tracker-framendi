@@ -3,8 +3,6 @@ package is.hi.hbv601.fitnesstracker.Model;
 import java.util.List;
 import java.util.ArrayList;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 public class Route {
     private long id;

@@ -1,14 +1,8 @@
 package is.hi.hbv601.fitnesstracker.Model;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 
-import javax.persistence.*;
 import java.util.List;
-import javax.validation.constraints.Pattern;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
     private long id;

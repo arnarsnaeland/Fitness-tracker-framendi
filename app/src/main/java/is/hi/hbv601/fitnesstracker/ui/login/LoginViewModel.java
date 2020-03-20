@@ -1,4 +1,4 @@
-package com.fitnesstracker.ui.login;
+package is.hi.hbv601.fitnesstracker.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.fitnesstracker.data.LoginRepository;
-import com.fitnesstracker.data.Result;
-import com.fitnesstracker.data.model.LoggedInUser;
-import com.fitnesstracker.R;
+import is.hi.hbv601.fitnesstracker.data.LoginRepository;
+import is.hi.hbv601.fitnesstracker.data.Result;
+import is.hi.hbv601.fitnesstracker.data.model.LoggedInUser;
+import is.hi.hbv601.fitnesstracker.R;
 
 public class LoginViewModel extends ViewModel {
 

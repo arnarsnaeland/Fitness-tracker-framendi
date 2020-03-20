@@ -1,4 +1,4 @@
-package com.fitnesstracker.ui.login;
+package is.hi.hbv601.fitnesstracker.ui.login;
 
 import androidx.annotation.Nullable;
 
