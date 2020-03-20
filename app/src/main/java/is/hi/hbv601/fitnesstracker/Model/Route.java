@@ -1,4 +1,4 @@
-package is.hi.hbv601.fitnesstracker.Objects;
+package is.hi.hbv601.fitnesstracker.Model;
 
 import java.util.List;
 import java.util.ArrayList;

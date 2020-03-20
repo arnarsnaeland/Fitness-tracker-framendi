@@ -1,6 +1,6 @@
-package com.fitnesstracker.data;
+package is.hi.hbv601.fitnesstracker.data;
 
-import com.fitnesstracker.data.model.LoggedInUser;
+import is.hi.hbv601.fitnesstracker.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

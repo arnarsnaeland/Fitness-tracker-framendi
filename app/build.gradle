@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.fitnesstracker"
+        applicationId "is.hi.hbv601.fitnesstracker"
         minSdkVersion 27
         targetSdkVersion 29
         versionCode 1

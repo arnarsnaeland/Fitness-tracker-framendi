@@ -1,6 +1,6 @@
-package com.fitnesstracker.data;
+package is.hi.hbv601.fitnesstracker.data;
 
-import com.fitnesstracker.data.model.LoggedInUser;
+import is.hi.hbv601.fitnesstracker.data.model.LoggedInUser;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.fitnesstracker;
+package is.hi.hbv601.fitnesstracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 

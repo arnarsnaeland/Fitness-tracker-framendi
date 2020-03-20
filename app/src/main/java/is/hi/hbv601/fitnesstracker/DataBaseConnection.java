@@ -7,23 +7,28 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL; 
 
+//import com.fasterxml.jackson.core;
+
 public class DataBaseConnection {
 
-    private static final String URL_STRING = "https://hugbo2-2020.herokuapp.com/login";
-                 
+    private static final String URL_STRING = "https://hugbo2-2020.herokuapp.com";
+
     public static void call_me() throws Exception {
-        URL obj = new URL(URL_STRING);
+        URL obj = new URL(URL_STRING + "/signup");
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("POST");
-        //add request header
-        //con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
         con.setRequestProperty("Content-Type", "application/json; utf-8");
         con.setRequestProperty("Accept", "application/json");
-        String jsonInputString = "{\"userName\": \"fokk\", \"password\": \"sjii\"}";
+        //ObjectMapper mapper = new ObjectMapper();
+
+        //String jsonString = mapper.writeValueAsString(staff);
+
+        String jsonString = "{\"userName\": \"fokk\", \"password\": \"fuck\"}";
         con.setDoOutput(true);
 
 		try(OutputStream os = con.getOutputStream()){
-			byte[] input = jsonInputString.getBytes("utf-8");
+			byte[] input = jsonString.getBytes("utf-8");
 			os.write(input, 0, input.length);			
 		}
 

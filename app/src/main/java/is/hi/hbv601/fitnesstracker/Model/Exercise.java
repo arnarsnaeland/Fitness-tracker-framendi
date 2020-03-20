@@ -1,4 +1,4 @@
-package is.hi.hbv601.fitnesstracker.Objects;
+package is.hi.hbv601.fitnesstracker.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
