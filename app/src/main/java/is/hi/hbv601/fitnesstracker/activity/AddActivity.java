@@ -1,8 +1,10 @@
-package is.hi.hbv601.fitnesstracker;
+package is.hi.hbv601.fitnesstracker.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import is.hi.hbv601.fitnesstracker.R;
 
 public class AddActivity extends AppCompatActivity {
 

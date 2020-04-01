@@ -1,10 +1,15 @@
-package is.hi.hbv601.fitnesstracker.Model;
+package is.hi.hbv601.fitnesstracker.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
 public class Exercise {
     private long id;
 
+    @JsonIgnoreProperties("user")
     private User user;
 
     private int duration;
@@ -35,7 +40,7 @@ public class Exercise {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
     public int getDuration() {
         return duration;
     }

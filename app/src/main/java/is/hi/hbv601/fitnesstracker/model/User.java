@@ -1,15 +1,17 @@
-package is.hi.hbv601.fitnesstracker.Model;
+package is.hi.hbv601.fitnesstracker.model;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
+    @JsonIgnore
     private long id;
 
     public String userName;
     private String password;
-
+    @JsonIgnore
     private List<Exercise> userExercises = new ArrayList<>();
 
     public User() { }

@@ -1,4 +1,4 @@
-package is.hi.hbv601.fitnesstracker.Model;
+package is.hi.hbv601.fitnesstracker.model;
 
 
 public class Coordinate {
