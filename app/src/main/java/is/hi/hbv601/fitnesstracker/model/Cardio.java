@@ -21,6 +21,11 @@ public class Cardio extends Exercise {
     public Cardio(Cardio cardio) {
     }
 
+    public String toString() {
+        String s = "topSpeed: " + topSpeed + ", distance: " + distance + ", route: " + route;
+        return s;
+    }
+
     public int getTopSpeed() {
         return topSpeed;
     }
