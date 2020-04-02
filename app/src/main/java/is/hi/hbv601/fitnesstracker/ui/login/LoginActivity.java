@@ -23,7 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import is.hi.hbv601.fitnesstracker.activity.MainActivity;
+import is.hi.hbv601.fitnesstracker.ui.activity.MainActivity;
 import is.hi.hbv601.fitnesstracker.R;
 //import is.hi.hbv601.fitnesstracker.ui.login.LoginViewModel;
 

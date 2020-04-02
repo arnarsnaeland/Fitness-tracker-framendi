@@ -1,14 +1,13 @@
-package is.hi.hbv601.fitnesstracker.activity;
+package is.hi.hbv601.fitnesstracker.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import is.hi.hbv601.fitnesstracker.R;
 
@@ -49,6 +48,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

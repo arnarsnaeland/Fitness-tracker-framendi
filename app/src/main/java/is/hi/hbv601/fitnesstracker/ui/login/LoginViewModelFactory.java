@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import is.hi.hbv601.fitnesstracker.data.LoginDataSource;
 import is.hi.hbv601.fitnesstracker.data.LoginRepository;
 
-import is.hi.hbv601.fitnesstracker.ui.login.LoginViewModel;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
