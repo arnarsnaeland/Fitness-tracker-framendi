@@ -18,6 +18,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ * This Class communicates with a Java Spring RESTful backend
+ */
 public class NetworkClient {
 
     private static final String URL = "https://hugbo2-2020.herokuapp.com/";
@@ -25,7 +28,15 @@ public class NetworkClient {
 
     OkHttpClient client = new OkHttpClient();
 
+    /**
+     * Posts method Object to backend
+     * @param url appended to URL String
+     * @param json object that is posted to url
+     * @return json object
+     * @throws IOException
+     */
     String post(String url, String json) throws IOException {
+        url = URL + url;
         RequestBody body = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
                 .url(url)
@@ -36,6 +47,12 @@ public class NetworkClient {
         }
     }
 
+    /**
+     * Get method for backend
+     * @param url appended to URL
+     * @return
+     * @throws IOException
+     */
     String get(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
@@ -46,11 +63,13 @@ public class NetworkClient {
         }
     }
 
+    // Timabundid TODO eyða þegar að tengingin við bakenda er komið
     public static String jsonString(Object object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(object);
     }
 
+    // Timabundid TODO eyða þegar að tengingin við bakenda er komið
     public static Cardio genCardio(User user, Date date) {
         String[] t = {"Bikeriding", "running"};
         int duration = (int)(Math.random()* 75 + 25);
@@ -79,10 +98,10 @@ public class NetworkClient {
         ZoneId defaultZoneId = ZoneId.systemDefault();
         Date d = Date.from(l.plusDays(2).atStartOfDay(defaultZoneId).toInstant());
 
-        String response = example.post(URL + "login", jsonString(user));
+        String response = example.post("login", jsonString(user));
         System.out.println(response);
 
-        response = example.post(URL + "exercise/list", jsonString(user));
+        response = example.post("exercise/list", jsonString(user));
         System.out.println(response);
 
         String json = jsonString(genStrength(user, d));
