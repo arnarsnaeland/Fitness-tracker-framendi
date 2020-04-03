@@ -63,6 +63,10 @@ public class LoginActivity extends AppCompatActivity {
         mUsername = (EditText)findViewById(R.id.username_text);
         mPassword = (EditText)findViewById(R.id.password_text);
 
+        /**
+         * Button
+         * Navigates to signup page
+         */
         mSignupPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +76,13 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
+        /**
+         * Login button
+         * userName text from mUsername input
+         * password text from mPassword input
+         * On success: sets loggedInUser with user response from server.
+         * On failure: displays error message.
+         */
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +183,15 @@ public class LoginActivity extends AppCompatActivity {
         return client.newCall(request);
     }
 
+    /**
+     * Sets the user, adds id and userExercises list from response to user
+     *
+     * @param username from input
+     * @param password from input
+     * @param jsonData from response
+     * @return User
+     * @throws JSONException
+     */
     private User setUser(String username, String password, String jsonData) throws JSONException {
         JSONObject json = new JSONObject(jsonData);
         User user = new User(username, password);
