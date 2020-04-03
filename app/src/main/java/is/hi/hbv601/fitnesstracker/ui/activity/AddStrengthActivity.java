@@ -1,16 +1,16 @@
 package is.hi.hbv601.fitnesstracker.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import is.hi.hbv601.fitnesstracker.R;
 
-public class AddActivity extends AppCompatActivity {
+public class AddStrengthActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_add_strength);
     }
 }

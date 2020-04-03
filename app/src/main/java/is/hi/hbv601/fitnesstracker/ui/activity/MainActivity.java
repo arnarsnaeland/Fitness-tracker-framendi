@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void addExcercise(View v){
-        Intent i = new Intent(this, AddActivity.class);
+    public void addStrength(View v){
+        Intent i = new Intent(this, AddStrengthActivity.class);
         startActivity(i);
     }
 
@@ -48,5 +48,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

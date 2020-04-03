@@ -11,7 +11,7 @@ import java.util.Date;
 import is.hi.hbv601.fitnesstracker.model.Cardio;
 import is.hi.hbv601.fitnesstracker.model.Strength;
 import is.hi.hbv601.fitnesstracker.model.User;
-
+import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,6 +28,8 @@ public class NetworkClient {
 
     OkHttpClient client = new OkHttpClient();
 
+    public NetworkClient () { }
+
     /**
      * Posts method Object to backend
      * @param url appended to URL String
@@ -35,16 +37,20 @@ public class NetworkClient {
      * @return json object
      * @throws IOException
      */
-    String post(String url, String json) throws IOException {
+    public String post(String url, String json)  {
         url = URL + url;
         RequestBody body = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
                 .build();
-        try (Response response = client.newCall(request).execute()) {
+        Call call = client.newCall(request);
+        try (Response response = call.execute()) {
             return response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -53,14 +59,17 @@ public class NetworkClient {
      * @return
      * @throws IOException
      */
-    String get(String url) throws IOException {
+    public String get(String url) {
         Request request = new Request.Builder()
                 .url(url)
                 .get()
                 .build();
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     // Timabundid TODO eyða þegar að tengingin við bakenda er komið
