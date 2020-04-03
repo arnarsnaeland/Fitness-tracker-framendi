@@ -1,11 +1,14 @@
 package is.hi.hbv601.fitnesstracker.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 import java.util.Date;
 
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Cardio.class, name = "cardio"),
+        @JsonSubTypes.Type(value = Strength.class, name = "strength")
+})
 public class Exercise {
     private long id;
 

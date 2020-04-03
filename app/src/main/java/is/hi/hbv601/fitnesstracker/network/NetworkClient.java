@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 
 import is.hi.hbv601.fitnesstracker.model.Cardio;
@@ -16,60 +14,46 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 
 /**
  * This Class communicates with a Java Spring RESTful backend
  */
 public class NetworkClient {
 
-    private static final String URL = "https://hugbo2-2020.herokuapp.com/";
-    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-
-    OkHttpClient client = new OkHttpClient();
-
-    public NetworkClient () { }
-
     /**
      * Posts method Object to backend
      * @param url appended to URL String
      * @param json object that is posted to url
-     * @return json object
+     * @return Call
      * @throws IOException
      */
-    public String post(String url, String json)  {
+    public Call post(String url, String json)  {
+        final String URL = "https://hugbo2-2020.herokuapp.com/";
+        final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+        OkHttpClient client = new OkHttpClient();
         url = URL + url;
         RequestBody body = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
                 .build();
-        Call call = client.newCall(request);
-        try (Response response = call.execute()) {
-            return response.body().string();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return client.newCall(request);
     }
 
     /**
-     * Get method for backend
-     * @param url appended to URL
-     * @return
-     * @throws IOException
+     *
+     * @param url
+     * @return Call
      */
-    public String get(String url) {
+    public Call get(String url) {
+        final String URL = "https://hugbo2-2020.herokuapp.com/";
+        OkHttpClient client = new OkHttpClient();
+        url = URL + url;
         Request request = new Request.Builder()
                 .url(url)
                 .get()
                 .build();
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return client.newCall(request);
     }
 
     // Timabundid TODO eyða þegar að tengingin við bakenda er komið
@@ -99,25 +83,6 @@ public class NetworkClient {
     }
 
     public static void main(String[] args) throws IOException {
-        NetworkClient example = new NetworkClient();
-        User user = new User("Tommi", "Jenni");
 
-        String startDate = "2020-01-01";
-        LocalDate l = LocalDate.parse(startDate);
-        ZoneId defaultZoneId = ZoneId.systemDefault();
-        Date d = Date.from(l.plusDays(2).atStartOfDay(defaultZoneId).toInstant());
-
-        String response = example.post("login", jsonString(user));
-        System.out.println(response);
-
-        response = example.post("exercise/list", jsonString(user));
-        System.out.println(response);
-
-        String json = jsonString(genStrength(user, d));
-        ObjectMapper objectMapper = new ObjectMapper();
-        Strength s = objectMapper.readValue(json, Strength.class);
-        System.out.println(s.toString());
-        response = example.post(URL + "exercise/addstrength", json);
-        System.out.println(response);
     }
 }
