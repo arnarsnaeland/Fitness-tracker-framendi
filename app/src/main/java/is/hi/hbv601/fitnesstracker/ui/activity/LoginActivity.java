@@ -78,8 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (isNetworkAvailable()) {
                     toggleRefresh();
                     networkClient = new NetworkClient();
-                    String userName = mUsername.getText().toString();
-                    String password = mPassword.getText().toString();
+                    final String userName = mUsername.getText().toString();
+                    final String password = mPassword.getText().toString();
                     JSONObject jsonUser = new JSONObject();
                     try {
                         jsonUser.put("userName", userName);
@@ -123,10 +123,10 @@ public class LoginActivity extends AppCompatActivity {
                                     Map<String,Object> map = new HashMap<String,Object>();
                                     map = mapper.readValue(jsonData, new TypeReference<HashMap<String,Object>>(){});
                                     Log.v(TAG, map.toString());
-                                    User loggedInUser = setUser(mUsername.toString(), mPassword.toString(), map.get("user").toString());
+                                    User loggedInUser = setUser(userName, password, map.get("user").toString());
                                     Log.v(TAG, loggedInUser.getUserName());
                                     Log.v(TAG, loggedInUser.getPassword());
-                                    Log.v(TAG, ("" + loggedInUser.getId()));
+                                    Log.v(TAG, String.valueOf(loggedInUser.getId()));
                                     Log.v(TAG, String.valueOf(loggedInUser.getUserExercises()));
                                     // MainActivity(v);
                                 } else {
