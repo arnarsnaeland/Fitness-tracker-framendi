@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final Button mLoginButton = findViewById(R.id.login_button);
+        final Button mLoginButton = findViewById(R.id.signin_button);
         final Button mSignupPageButton = findViewById(R.id.signup_page_button);
         mProgressBar = findViewById(R.id.loading);
         mLoginFailed = findViewById(R.id.login_failed_textview);
@@ -71,7 +71,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO
-                //finish();
+                SignupActivity(v);
+                finish();
             }
 
         });
@@ -85,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
          */
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 if (isNetworkAvailable()) {
                     toggleRefresh();
                     networkClient = new NetworkClient();
@@ -139,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.v(TAG, loggedInUser.getPassword());
                                     Log.v(TAG, String.valueOf(loggedInUser.getId()));
                                     Log.v(TAG, String.valueOf(loggedInUser.getUserExercises()));
-                                    // MainActivity(v);
+                                    MainActivity(v);
                                 } else {
                                     runOnUiThread(new Runnable() {
                                         @Override
@@ -163,6 +164,11 @@ public class LoginActivity extends AppCompatActivity {
     public void MainActivity(View v){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void SignupActivity(View v) {
+        Intent u = new Intent(this, SignupActivity.class);
+        startActivity(u);
     }
 
     /**
@@ -193,10 +199,10 @@ public class LoginActivity extends AppCompatActivity {
      * @throws JSONException
      */
     private User setUser(String username, String password, String jsonData) throws JSONException {
-        JSONObject json = new JSONObject(jsonData);
+        //JSONObject json = new JSONObject(jsonData);
         User user = new User(username, password);
-        Log.v(TAG, json.toString());
-        user.setId(json.getLong("id"));
+        //Log.v(TAG, json.toString());
+        //user.setId(json.getLong("id"));
         // TODO deserialize ExerciseList
         return user;
     }
