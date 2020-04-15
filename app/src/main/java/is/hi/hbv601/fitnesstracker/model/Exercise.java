@@ -2,13 +2,16 @@ package is.hi.hbv601.fitnesstracker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import java.util.Date;
 
+
+@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Cardio.class, name = "cardio"),
-        @JsonSubTypes.Type(value = Strength.class, name = "strength")
-})
+        @JsonSubTypes.Type(value = Strength.class, name = "strength") }
+)
 public class Exercise {
     private long id;
 

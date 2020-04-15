@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final Button mLoginButton = findViewById(R.id.login_button);
+        final Button mLoginButton = findViewById(R.id.signup_button);
         final Button mSignupPageButton = findViewById(R.id.signup_page_button);
         mProgressBar = findViewById(R.id.loading);
         mLoginFailed = findViewById(R.id.login_failed_textview);
@@ -86,11 +86,13 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Connected to internet
                 if (isNetworkAvailable()) {
                     toggleRefresh();
                     networkClient = new NetworkClient();
                     final String userName = mUsername.getText().toString();
                     final String password = mPassword.getText().toString();
+                    // Create Json user
                     JSONObject jsonUser = new JSONObject();
                     try {
                         jsonUser.put("userName", userName);
@@ -98,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    // Post login information to server
                     Call call = post("login", jsonUser.toString());
                     call.enqueue(new Callback() {
                         @Override
@@ -131,14 +134,16 @@ public class LoginActivity extends AppCompatActivity {
                                 // Login succesful
                                 if (response.isSuccessful()) {
                                     final ObjectMapper mapper = new ObjectMapper();
-                                    Map<String,Object> map = new HashMap<String,Object>();
+                                    Map<String,Object> map;
                                     map = mapper.readValue(jsonData, new TypeReference<HashMap<String,Object>>(){});
                                     Log.v(TAG, map.toString());
                                     User loggedInUser = setUser(userName, password, map.get("user").toString());
+                                    // TEMP TODO DELETE LOG
                                     Log.v(TAG, loggedInUser.getUserName());
                                     Log.v(TAG, loggedInUser.getPassword());
                                     Log.v(TAG, String.valueOf(loggedInUser.getId()));
                                     Log.v(TAG, String.valueOf(loggedInUser.getUserExercises()));
+                                    // TODO GOTO LANDING PAGE
                                     // MainActivity(v);
                                 } else {
                                     runOnUiThread(new Runnable() {
@@ -193,11 +198,20 @@ public class LoginActivity extends AppCompatActivity {
      * @throws JSONException
      */
     private User setUser(String username, String password, String jsonData) throws JSONException {
-        JSONObject json = new JSONObject(jsonData);
         User user = new User(username, password);
-        Log.v(TAG, json.toString());
-        user.setId(json.getLong("id"));
+        //JSONObject json = new JSONObject(jsonData);
+        //User user = new User(username, password);
+        //Log.v(TAG, json.toString());
+        //user.setId(json.getLong("id"));
         // TODO deserialize ExerciseList
+        ObjectMapper objectMapper = new ObjectMapper();
+        User user = null;
+        try {
+            user = objectMapper.readValue(jsonData, new TypeReference<User>(){});
+            user.setPassword(password);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return user;
     }
 

@@ -1,17 +1,11 @@
 package is.hi.hbv601.fitnesstracker.model;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = Cardio.class, name = "cardio"),
-
-        @JsonSubTypes.Type(value = Strength.class, name = "strength") }
-)
 public class User {
     private long id;
 
@@ -31,6 +25,18 @@ public class User {
         super();
         this.userName = userName;
         this.password = password;
+    }
+
+    @JsonCreator
+    public User(@JsonProperty("id")long id,
+                @JsonProperty("userName")String userName,
+                @JsonProperty("password")String password,
+                @JsonProperty("userExercises") List<Exercise> userExercises) {
+        super();
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.userExercises = userExercises;
     }
 
     public long getId() {
