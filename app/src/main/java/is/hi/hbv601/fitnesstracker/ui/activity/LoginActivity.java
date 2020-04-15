@@ -55,7 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+<<<<<<< HEAD
         final Button mLoginButton = findViewById(R.id.signup_button);
+=======
+        final Button mLoginButton = findViewById(R.id.signin_button);
+>>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
         final Button mSignupPageButton = findViewById(R.id.signup_page_button);
         mProgressBar = findViewById(R.id.loading);
         mLoginFailed = findViewById(R.id.login_failed_textview);
@@ -71,7 +75,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO
-                //finish();
+                SignupActivity(v);
+                finish();
             }
 
         });
@@ -85,8 +90,12 @@ public class LoginActivity extends AppCompatActivity {
          */
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
+<<<<<<< HEAD
             public void onClick(View v) {
                 // Connected to internet
+=======
+            public void onClick(final View v) {
+>>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
                 if (isNetworkAvailable()) {
                     toggleRefresh();
                     networkClient = new NetworkClient();
@@ -143,8 +152,12 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.v(TAG, loggedInUser.getPassword());
                                     Log.v(TAG, String.valueOf(loggedInUser.getId()));
                                     Log.v(TAG, String.valueOf(loggedInUser.getUserExercises()));
+<<<<<<< HEAD
                                     // TODO GOTO LANDING PAGE
                                     // MainActivity(v);
+=======
+                                    MainActivity(v);
+>>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
                                 } else {
                                     runOnUiThread(new Runnable() {
                                         @Override
@@ -168,6 +181,11 @@ public class LoginActivity extends AppCompatActivity {
     public void MainActivity(View v){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void SignupActivity(View v) {
+        Intent u = new Intent(this, SignupActivity.class);
+        startActivity(u);
     }
 
     /**
@@ -198,9 +216,14 @@ public class LoginActivity extends AppCompatActivity {
      * @throws JSONException
      */
     private User setUser(String username, String password, String jsonData) throws JSONException {
+<<<<<<< HEAD
         User user = new User(username, password);
         //JSONObject json = new JSONObject(jsonData);
         //User user = new User(username, password);
+=======
+        //JSONObject json = new JSONObject(jsonData);
+        User user = new User(username, password);
+>>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
         //Log.v(TAG, json.toString());
         //user.setId(json.getLong("id"));
         // TODO deserialize ExerciseList

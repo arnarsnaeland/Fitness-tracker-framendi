@@ -12,21 +12,19 @@
     tools:context=".ui.activity.LoginActivity">
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/signin_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="300dp"
         android:enabled="true"
         android:text="@string/action_sign_in_short"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/signup_page_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password_text"
         app:layout_constraintVertical_bias="0.2" />
 
     <ProgressBar

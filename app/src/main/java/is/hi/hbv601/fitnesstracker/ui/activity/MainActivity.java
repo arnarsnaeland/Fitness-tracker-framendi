@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,10 +20,83 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final Button mStatsButton = findViewById(R.id.statsBtn);
+        final Button mAddExerciseButton = findViewById(R.id.addExcerciseBtn);
+        final Button mStartTrackingButton = findViewById(R.id.trackBtn);
+        final Button mViewExercisesButton = findViewById(R.id.excerciseListBtn);
+
+        /**
+         * Button
+         * Navigates to stats page
+         */
+        mStatsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Stats(v);
+                finish();
+            }
+
+        });
+
+        /**
+         * Button
+         * Navigates to Add Exercise page
+         */
+        mAddExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddExercise(v);
+                finish();
+            }
+
+        });
+
+        /**
+         * Button
+         * Navigates to record route page
+         */
+        mStartTrackingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecordRoute(v);
+                finish();
+            }
+
+        });
+
+        /**
+         * Button
+         * Navigates to View exercises page
+         */
+        mViewExercisesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewExercises(v);
+                finish();
+            }
+
+        });
+
     }
 
-    public void addStrength(View v){
-        Intent i = new Intent(this, AddStrengthActivity.class);
+    public void Stats(View v){
+        Intent i = new Intent(this, StatsActivity.class);
+        startActivity(i);
+    }
+
+    public void AddExercise(View v){
+        Intent i = new Intent(this, AddExerciseActivity.class);
+        startActivity(i);
+    }
+
+    public void RecordRoute(View v){
+        Intent i = new Intent(this, RecordRouteActivity.class);
+        startActivity(i);
+    }
+
+    public void ViewExercises(View v){
+        Intent i = new Intent(this, ViewExercisesActivity.class);
         startActivity(i);
     }
 
