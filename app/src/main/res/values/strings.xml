@@ -26,6 +26,10 @@
         <item> Bike</item>
         <item> Swim</item>
     </string-array>
+    <string-array name="strengthList">
+        <item> Weightlifting</item>
+        <item> Calisthenics</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
