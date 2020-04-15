@@ -55,11 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-<<<<<<< HEAD
-        final Button mLoginButton = findViewById(R.id.signup_button);
-=======
         final Button mLoginButton = findViewById(R.id.signin_button);
->>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
         final Button mSignupPageButton = findViewById(R.id.signup_page_button);
         mProgressBar = findViewById(R.id.loading);
         mLoginFailed = findViewById(R.id.login_failed_textview);
@@ -90,12 +86,7 @@ public class LoginActivity extends AppCompatActivity {
          */
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
-            public void onClick(View v) {
-                // Connected to internet
-=======
             public void onClick(final View v) {
->>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
                 if (isNetworkAvailable()) {
                     toggleRefresh();
                     networkClient = new NetworkClient();
@@ -151,13 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.v(TAG, loggedInUser.getUserName());
                                     Log.v(TAG, loggedInUser.getPassword());
                                     Log.v(TAG, String.valueOf(loggedInUser.getId()));
-                                    Log.v(TAG, String.valueOf(loggedInUser.getUserExercises()));
-<<<<<<< HEAD
-                                    // TODO GOTO LANDING PAGE
-                                    // MainActivity(v);
-=======
                                     MainActivity(v);
->>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
                                 } else {
                                     runOnUiThread(new Runnable() {
                                         @Override
@@ -190,8 +175,8 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Posts method Object to backend
-     * @param url appended to URL String
-     * @param json object that is posted to url
+     * @param url appended to URL String URL + url
+     * @param json object that is posted to url 
      * @return Call
      * @throws IOException
      */
@@ -216,25 +201,9 @@ public class LoginActivity extends AppCompatActivity {
      * @throws JSONException
      */
     private User setUser(String username, String password, String jsonData) throws JSONException {
-<<<<<<< HEAD
+        JSONObject json = new JSONObject(jsonData);
         User user = new User(username, password);
-        //JSONObject json = new JSONObject(jsonData);
-        //User user = new User(username, password);
-=======
-        //JSONObject json = new JSONObject(jsonData);
-        User user = new User(username, password);
->>>>>>> 55ab253796b39f9f4d6b2fc811bb6da14d3d2984
-        //Log.v(TAG, json.toString());
-        //user.setId(json.getLong("id"));
-        // TODO deserialize ExerciseList
-        ObjectMapper objectMapper = new ObjectMapper();
-        User user = null;
-        try {
-            user = objectMapper.readValue(jsonData, new TypeReference<User>(){});
-            user.setPassword(password);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        user.setId(json.getLong("id"));
         return user;
     }
 
