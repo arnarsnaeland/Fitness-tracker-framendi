@@ -18,35 +18,28 @@ import java.util.List;
 
 import is.hi.hbv601.fitnesstracker.R;
 
-public class AddCardioActivity extends AppCompatActivity {
+public class AddCardioActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    //private EditText CardioLengthInput;
-    //in minutes
-    int cardioDuration;
+    String cardioType;
 
-    //in km
-    double distance;
+    private EditText mCardioDuration;
+    private EditText mCardioDistance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cardio);
 
-        final Spinner CardioSpinner = (Spinner)findViewById(R.id.cardio_spinner);
+        mCardioDuration = (EditText) findViewById(R.id.cardio_duration);
+        mCardioDistance = (EditText) findViewById(R.id.cardio_distance);
+
+        Spinner CardioSpinner = (Spinner)findViewById(R.id.cardio_spinner);
+
+        CardioSpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.cardioList));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         CardioSpinner.setAdapter(myAdapter);
-
-        //ÞESSI KÓÐABÚTUR LÆTUR APPIÐ KRASSA AF EINHVERJUM ÁSTÆÐUM
-        /*CardioSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedCardio = CardioSpinner.getSelectedItem().toString();
-            }
-        }); */
-
-        //cardioLength = Integer.valueOf(CardioLengthInput.getText().toString());
 
         final Button mSaveCardioButton = findViewById(R.id.save_cardio);
 
@@ -57,11 +50,15 @@ public class AddCardioActivity extends AppCompatActivity {
         mSaveCardioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Tengja við gagnagrunn þannig að æfingar saveist
+
+                final int cardioDuration = Integer.parseInt(mCardioDuration.getText().toString());
+                final int cardioDistance = Integer.parseInt(mCardioDistance.getText().toString());
+
+                /* // TODO: Tengja við gagnagrunn þannig að æfingar saveist
                 Toast.makeText(getBaseContext(), "Saving Exercise...", Toast.LENGTH_SHORT).show();
 
                 MainActivity(v);
-                finish();
+                finish(); */
             }
 
         });
@@ -70,5 +67,17 @@ public class AddCardioActivity extends AppCompatActivity {
     public void MainActivity(View v) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        cardioType = parent.getItemAtPosition(position).toString();
+        //Sýna valið item (testing)
+        Toast.makeText(parent.getContext(), "Selected : " + cardioType, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
