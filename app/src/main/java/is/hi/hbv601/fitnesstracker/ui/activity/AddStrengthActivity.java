@@ -27,7 +27,9 @@ public class AddStrengthActivity extends AppCompatActivity implements AdapterVie
 
         mStrengthDuration = (EditText) findViewById(R.id.strength_duration);
 
-        final Spinner StrengthSpinner = (Spinner)findViewById(R.id.strength_spinner);
+        Spinner StrengthSpinner = (Spinner)findViewById(R.id.strength_spinner);
+
+        StrengthSpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.strengthList));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -63,7 +65,7 @@ public class AddStrengthActivity extends AppCompatActivity implements AdapterVie
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         strengthType = parent.getItemAtPosition(position).toString();
         //Sýna valið item (testing)
-        Toast.makeText(parent.getContext(), "Selected : " + strengthType, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(parent.getContext(), "Selected : " + strengthType, Toast.LENGTH_SHORT).show();
     }
 
     @Override

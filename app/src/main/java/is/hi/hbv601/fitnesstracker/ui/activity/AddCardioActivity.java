@@ -73,7 +73,7 @@ public class AddCardioActivity extends AppCompatActivity implements AdapterView.
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         cardioType = parent.getItemAtPosition(position).toString();
         //Sýna valið item (testing)
-        Toast.makeText(parent.getContext(), "Selected : " + cardioType, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(parent.getContext(), "Selected : " + cardioType, Toast.LENGTH_SHORT).show();
     }
 
     @Override
