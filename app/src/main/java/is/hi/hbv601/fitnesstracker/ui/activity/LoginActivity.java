@@ -144,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.v(TAG, loggedInUser.getPassword());
                                     Log.v(TAG, String.valueOf(loggedInUser.getId()));
                                     MainActivity(v);
+                                    finish();
                                 } else {
                                     runOnUiThread(new Runnable() {
                                         @Override

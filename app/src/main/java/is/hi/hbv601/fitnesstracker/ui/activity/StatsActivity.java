@@ -33,26 +33,8 @@ public class StatsActivity extends AppCompatActivity {
             }
         }); */
 
-        final Button mBackButton = findViewById(R.id.back_button);
-
-        /**
-         * Button
-         * Navigates back to main activity page
-         */
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity(v);
-                finish();
-            }
-
-        });
 
     }
 
-    public void MainActivity(View v) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
 
 }

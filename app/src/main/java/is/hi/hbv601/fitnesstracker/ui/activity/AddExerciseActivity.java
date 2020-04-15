@@ -27,7 +27,7 @@ public class AddExerciseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AddCardioActivity(v);
-                finish();
+                //finish(); Sleppi finish hér svo back takkinn virki
             }
 
         });
@@ -40,7 +40,7 @@ public class AddExerciseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AddStrengthActivity(v);
-                finish();
+                //finish(); Sleppi finish hér svo back takkinn virki
             }
 
         });

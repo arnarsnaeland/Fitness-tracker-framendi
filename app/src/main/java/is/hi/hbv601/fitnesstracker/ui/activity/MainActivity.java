@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Stats(v);
-                finish();
+                //finish(); Sleppi finish hér svo back takkinn virki
             }
 
         });
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AddExercise(v);
-                finish();
+                //finish(); Sleppi finish hér svo back takkinn virki
             }
 
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RecordRoute(v);
-                finish();
+                //finish(); Sleppi finish hér svo back takkinn virki
             }
 
         });
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewExercises(v);
-                finish();
+                //finish(); Sleppi finish hér svo back takkinn virki
             }
 
         });
