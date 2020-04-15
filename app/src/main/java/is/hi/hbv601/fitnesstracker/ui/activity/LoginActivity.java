@@ -101,7 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     // Post login information to server
-                    Call call = post("login", jsonUser.toString());
+                    //Call call = post("signup", jsonUser.toString());
+                    Call call = networkClient.post("login", jsonUser.toString());
                     call.enqueue(new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {

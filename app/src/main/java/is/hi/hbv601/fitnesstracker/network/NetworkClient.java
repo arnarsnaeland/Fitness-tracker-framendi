@@ -1,14 +1,7 @@
 package is.hi.hbv601.fitnesstracker.network;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
-import java.util.Date;
 
-import is.hi.hbv601.fitnesstracker.model.Cardio;
-import is.hi.hbv601.fitnesstracker.model.Strength;
-import is.hi.hbv601.fitnesstracker.model.User;
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -20,16 +13,18 @@ import okhttp3.RequestBody;
  */
 public class NetworkClient {
 
+    private static final String URL = "https://hugbo2-2020.herokuapp.com/";
+    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
+
     /**
      * Posts method Object to backend
-     * @param url appended to URL String
+     * @param url appended to URL String URL + url
      * @param json object that is posted to url
      * @return Call
      * @throws IOException
      */
     public Call post(String url, String json)  {
-        final String URL = "https://hugbo2-2020.herokuapp.com/";
-        final MediaType JSON = MediaType.get("application/json; charset=utf-8");
         OkHttpClient client = new OkHttpClient();
         url = URL + url;
         RequestBody body = RequestBody.create(json, JSON);
@@ -56,33 +51,4 @@ public class NetworkClient {
         return client.newCall(request);
     }
 
-    // Timabundid TODO eyða þegar að tengingin við bakenda er komið
-    public static String jsonString(Object object) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(object);
-    }
-
-    // Timabundid TODO eyða þegar að tengingin við bakenda er komið
-    public static Cardio genCardio(User user, Date date) {
-        String[] t = {"Bikeriding", "running"};
-        int duration = (int)(Math.random()* 75 + 25);
-        String type = t[(int)Math.round(Math.random())];
-        int topSpeed = (int)(Math.random() * 25 + 12);
-        int distance = (int)(Math.random() * 25 + 5);
-        return new Cardio(user, duration, date, type, topSpeed, distance, null);
-    }
-
-    // Strength(Exercise(int duration, Date date, String type), int weight, int times)
-    public static Strength genStrength(User user, Date date) {
-        String[] t = {"veitekki", "ehe", "hehe"};
-        int duration = (int)(Math.random()* 75) + 25;
-        String type = t[(int)(Math.random() * 3)];
-        int weight = (int)(Math.random() * 100) + 5;
-        int times = (int)(Math.random() * 40 )+ 5;
-        return new Strength(user, duration, date, type, weight, times);
-    }
-
-    public static void main(String[] args) throws IOException {
-
-    }
 }
