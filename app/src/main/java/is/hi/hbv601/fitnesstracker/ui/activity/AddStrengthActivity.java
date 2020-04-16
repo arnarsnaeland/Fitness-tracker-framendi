@@ -74,7 +74,7 @@ public class AddStrengthActivity extends AppCompatActivity implements AdapterVie
                     networkClient = new NetworkClient();
                     final int duration = Integer.parseInt(mStrengthDuration.getText().toString());
                     final Date date = new Date();
-                    final String type = "eh";
+                    final String type = strengthType;
                     final int weight = 1;
                     final int times = 1;
                     // Create Json user
@@ -138,6 +138,7 @@ public class AddStrengthActivity extends AppCompatActivity implements AdapterVie
                                     // Bætir æfingu við listann á núverandi notenda.
                                     // addStrength(jsonData);
                                     loggedInUser.addExercise(strength);
+                                    Toast.makeText(getBaseContext(), "Exercise Saved", Toast.LENGTH_SHORT).show();
                                     MainActivity(v);
                                     finish();
                                 } else {

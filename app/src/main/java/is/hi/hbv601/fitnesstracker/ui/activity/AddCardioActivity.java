@@ -72,9 +72,9 @@ public class AddCardioActivity extends AppCompatActivity implements AdapterView.
                             networkClient = new NetworkClient();
                             final int duration = Integer.parseInt(mCardioDuration.getText().toString());
                             final Date date = new Date();
-                            final String type = "eh";
+                            final String type = cardioType;
                             final int topspeed = 1;
-                            final int distance = 1;
+                            final int distance = Integer.parseInt(mCardioDistance.getText().toString());
                             // Create Json user
                             final User loggedInUser = new User("Tommi", "Jenni");
                             JSONObject jsonUser = new JSONObject();
@@ -137,6 +137,7 @@ public class AddCardioActivity extends AppCompatActivity implements AdapterView.
                                             // Bætir æfingu við listann á núverandi notenda.
                                             // addStrength(jsonData);
                                             loggedInUser.addExercise(cardio);
+                                            Toast.makeText(getBaseContext(), "Exercise Saved", Toast.LENGTH_SHORT).show();
                                             MainActivity(v);
                                             finish();
                                         } else {
