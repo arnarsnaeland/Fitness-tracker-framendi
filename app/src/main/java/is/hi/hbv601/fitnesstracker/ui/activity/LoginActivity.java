@@ -101,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     // Post login information to server
-                    //Call call = post("signup", jsonUser.toString());
                     Call call = networkClient.post("login", jsonUser.toString());
                     call.enqueue(new Callback() {
                         @Override
@@ -140,8 +139,6 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.v(TAG, map.toString());
                                     User loggedInUser = setUser(userName, password, map.get("user").toString());
                                     // TEMP TODO DELETE LOG
-                                    Log.v(TAG, loggedInUser.getUserName());
-                                    Log.v(TAG, loggedInUser.getPassword());
                                     Log.v(TAG, String.valueOf(loggedInUser.getId()));
                                     MainActivity(v);
                                     finish();
